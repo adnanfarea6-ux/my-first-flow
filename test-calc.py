@@ -15,4 +15,4 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calc.subtract(2, 2), 0)
 
 if name == 'main':
-    unittest.main()
+    unittest.mai
