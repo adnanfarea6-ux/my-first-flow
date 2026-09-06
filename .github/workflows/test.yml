@@ -1,17 +1,19 @@
-name: Simple Test Workflow
+name: Python Unit Test
 
-# متى يعمل هذا الفحص؟ عند أي عملية Push
 on: [push]
 
 jobs:
-  build_and_test:
+  test_code:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Run a simple test command
-        run: |
-          echo "تم بدء الفحص بنجاح!"
-          echo "جميع الأكواد تعمل بشكل سليم ولا توجد أخطاء."
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Python Tests
+        run: python -m unittest test_calc.py
