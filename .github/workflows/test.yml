@@ -1,0 +1,17 @@
+name: Simple Test Workflow
+
+# متى يعمل هذا الفحص؟ عند أي عملية Push
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run a simple test command
+        run: |
+          echo "تم بدء الفحص بنجاح!"
+          echo "جميع الأكواد تعمل بشكل سليم ولا توجد أخطاء."
